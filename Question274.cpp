@@ -9,7 +9,6 @@ public:
         sort(citations.begin(), citations.end());
         int mid = citations.size()/2;
         int left = 0, right = citations.size();
-        cout << "(" << left << "," << mid << "," << right << ")" <<endl;
         while(left < right){
             if(citations[mid] == citations.size() - mid){//提前结束
                 return citations[mid];
@@ -20,7 +19,6 @@ public:
                 left = mid+1;
             }
             mid = (left+right)/2;
-            cout << "(" << left << "," << mid << "," << right << ")" <<endl;
         }
         return (int)citations.size() - left;
     }
