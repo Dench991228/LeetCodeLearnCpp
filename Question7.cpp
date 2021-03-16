@@ -27,7 +27,7 @@ int main(){
     cout << (int)(0x80000000) << endl;
     cout << 0x7fffffff << endl;
     while(cin >> n){
-        s.reverse(n);
+        cout << s.reverse(n) << endl;
     }
     return 0;
 }
