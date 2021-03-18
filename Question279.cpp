@@ -5,17 +5,27 @@
 using namespace std;
 
 class Solution{
+private:
+    int number[100];
 public:
-    int squares[100];
-    int max_length;
-    int length[10001];
     int numSquares(int n) {
-        int j=100;
-        for(int i=0;i<100;i++){
-            squares[i] = j*j;
-            j--;
+        int dp[n+1];
+        memset(dp, 0x7f, sizeof(int)*(n+1));
+        dp[0] = 0;
+        for(int i=1;i<=100;i++){
+            number[i-1] = i*i;
         }
-        int cur = 0;//最大的平方数
-        return max_length;
+        /*遍历可能的完全平方数*/
+        for(int interval:number){
+            for(int i = 1;i<=n;i++){
+                if(dp[i-interval]!=0x7f7f7f7f){
+                    dp[i] = min(dp[i-interval] + 1, dp[i]);
+                }
+            }
+        }
+        return dp[n];
     }
 };
+int main(){
+    return 0;
+}
