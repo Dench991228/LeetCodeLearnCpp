@@ -6,7 +6,7 @@ using namespace std;
 
 #define MAX 1000
 
-double x[MAX], A[MAX][MAX], Y[MAX][MAX];
+double x[MAX], A[MAX][MAX], Y[MAX];
 
 int main(){
     ifstream data_txt;
@@ -26,13 +26,13 @@ int main(){
         x_txt >> x[i];
         //cout << x[i] << endl;
     }
-    memset(Y, 0, sizeof(int)*MAX*MAX);
+    memset(Y, 0, sizeof(int)*MAX);
     /*开始操作*/
     /*方式一*/
     chrono::time_point<chrono::system_clock> start_1 = chrono::system_clock::now();
     for(int i=0;i<MAX;i++){
         for(int j=0;j<MAX;j++){
-            Y[i][j] += A[i][j] * x[j];
+            Y[i] += A[i][j] * x[j];
         }
     }
     chrono::time_point<chrono::system_clock> end_1 = chrono::system_clock::now();
@@ -43,7 +43,7 @@ int main(){
     chrono::time_point<chrono::system_clock> start_2 = chrono::system_clock::now();
     for(int i=0;i<MAX;i++){
         for(int j=0;j<MAX;j++){
-            Y[j][i] += A[j][i] * x[i];
+            Y[j] += A[j][i] * x[i];
         }
     }
     chrono::time_point<chrono::system_clock> end_2 = chrono::system_clock::now();
