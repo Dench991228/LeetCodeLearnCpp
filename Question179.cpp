@@ -51,6 +51,5 @@ public:
         }else{
             return string("0");
         }
-        return result;
     }
 };
